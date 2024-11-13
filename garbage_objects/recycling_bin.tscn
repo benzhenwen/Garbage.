@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyub1acwr27q7"]
+
+[ext_resource type="Texture2D" uid="uid://dcdtfc7y7o12u" path="res://garbage_assets/IMG_0273.PNG" id="2_cmes2"]
+[ext_resource type="Script" path="res://scripts/bin_disable.gd" id="3_delhd"]
+[ext_resource type="Texture2D" uid="uid://bd7lkf7ok0ba4" path="res://garbage_assets/trash_fronts.png" id="3_k3xrd"]
+
+[node name="Paper" type="StaticBody2D"]
+input_pickable = true
+
+[node name="Img0273" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-97, -276)
+texture = ExtResource("2_cmes2")
+
+[node name="back" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-4.5, -24.865)
+scale = Vector2(1, 1.00256)
+texture = ExtResource("2_cmes2")
+region_enabled = true
+region_rect = Rect2(953.251, 649.592, 197.597, 285.501)
+
+[node name="front" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-3, -3.5)
+scale = Vector2(1, 1.00427)
+texture = ExtResource("3_k3xrd")
+region_enabled = true
+region_rect = Rect2(958.808, 696.898, 190.229, 234.258)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-86, -104, -55, 105, 50, 105, 83, -103, 76, -103, 44, 96, -48, 95, -78, -104)
+
+[node name="garbage_sleep_area" type="Area2D" parent="." groups=["garbage_disable_area"]]
+script = ExtResource("3_delhd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="garbage_sleep_area"]
+position = Vector2(-814, -819)
+polygon = PackedVector2Array(767, 905, 768, 912, 856, 913, 858, 907)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_entered" from="garbage_sleep_area" to="garbage_sleep_area" method="_on_body_entered"]
