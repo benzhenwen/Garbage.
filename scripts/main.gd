@@ -10,7 +10,7 @@ const garbage_object_names = [
 	"solo_cup"
 ]
 
-var trash_count = 4;
+var trash_count = 100000;
 func decrement_trash_count() -> bool:
 	trash_count -= 1;
 	return trash_count == 0;

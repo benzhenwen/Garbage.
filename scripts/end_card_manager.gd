@@ -30,8 +30,15 @@ func _trigger_end_sequence():
 	
 	# map of what items had what decisions made
 	var had_recycled = {
-		"can": "recycle" if (item_map["recycling bin"]["can"] > item_map["trash bin"]["can"]) else "trash",
-		"solo_cup": "recycle" if (item_map["recycling bin"]["solo_cup"] > item_map["trash bin"]["solo_cup"]) else "trash"
+		"can": item_map["recycling bin"]["can"] > item_map["trash bin"]["can"],
+		"solo_cup": item_map["recycling bin"]["solo_cup"] > item_map["trash bin"]["solo_cup"]
 	}
 	
-	get_node("%label_solo_cup").text = "You decided to " + had_recycled["solo_cup"] + " red solo cups\n";
+	get_node("%label_body_text").text = "" \
+		+ "You decided to " + ("recycle" if had_recycled["can"] else "trash") + " aluminum cans.\n" \
+		+ "Aluminum cans should be recycled, but make sure to empty them first.\n" \
+		+ "If liquid is left inside the can it will not be recycled.\n" \
+		+ "\n" \
+		+ "You decided to " + ("recycle" if had_recycled["solo_cup"] else "trash") + " red solo cups.\n" \
+		+ "These cups are #6 plastic, and sometimes " + ("cannot" if had_recycled["solo_cup"] else "can") + " be recycled.\n" \
+		+ "Check with your local recycling plant to see if you can.";
