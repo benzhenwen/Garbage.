@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/grabable.gd" id="1_elfco"]
 [ext_resource type="Texture2D" uid="uid://dcdtfc7y7o12u" path="res://garbage_assets/IMG_0273.PNG" id="2_klpgq"]
 
-[node name="Paper" type="RigidBody2D" groups=["trash"]]
+[node name="Trash Bag" type="RigidBody2D" groups=["trash"]]
 input_pickable = true
 can_sleep = false
 script = ExtResource("1_elfco")

@@ -7,6 +7,8 @@ var is_held: bool = false;
 
 var hold_offset: Vector2 = Vector2(0, 0);
 
+var trash_name: String;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	contact_monitor = true;

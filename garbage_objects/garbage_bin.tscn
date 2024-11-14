@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://scripts/bin_disable.gd" id="3_tynft"]
 [ext_resource type="Texture2D" uid="uid://bd7lkf7ok0ba4" path="res://garbage_assets/trash_fronts.png" id="3_x2n83"]
 
-[node name="Paper" type="StaticBody2D"]
+[node name="garbage_bin" type="StaticBody2D"]
 input_pickable = true
+script = ExtResource("3_tynft")
 
 [node name="back" type="Sprite2D" parent="."]
 z_index = -1
@@ -27,12 +28,9 @@ region_rect = Rect2(720.971, 698.448, 181.911, 235.423)
 polygon = PackedVector2Array(-86, -104, -55, 105, 50, 105, 83, -103, 76, -103, 44, 96, -48, 95, -78, -104)
 
 [node name="garbage_sleep_area" type="Area2D" parent="." groups=["garbage_disable_area"]]
-script = ExtResource("3_tynft")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="garbage_sleep_area"]
 position = Vector2(-814, -819)
 polygon = PackedVector2Array(767, 905, 768, 912, 856, 913, 858, 907)
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="body_entered" from="garbage_sleep_area" to="garbage_sleep_area" method="_on_body_entered"]
+[connection signal="body_entered" from="garbage_sleep_area" to="." method="_on_garbage_sleep_area_body_entered"]
