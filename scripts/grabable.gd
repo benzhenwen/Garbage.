@@ -15,7 +15,7 @@ func _ready():
 	max_contacts_reported = 9999;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_mouse_button_pressed(1):
 		if (not is_held) and mouse_overlaps and (not last_lmb_state):
 			hold_offset = rotate_point(get_viewport().get_mouse_position() - get_position(), -get_transform().get_rotation());
@@ -32,7 +32,7 @@ func rotate_point(point: Vector2, angle: float):
 		point.x*sin(angle)+point.y*cos(angle)
 	);
 
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	if (is_held):
 		var force = (get_viewport().get_mouse_position()-(get_position()+0.5*rotate_point(hold_offset, get_transform().get_rotation())))*1*pow(get_position().distance_to(get_viewport().get_mouse_position()), 2);
 		if force.length() > 80000:

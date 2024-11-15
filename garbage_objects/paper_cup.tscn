@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddy4kpob1fedt"]
+
+[ext_resource type="Script" path="res://scripts/grabable.gd" id="1_choo1"]
+[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.png" id="2_mnmka"]
+
+[node name="paper_cup" type="RigidBody2D" groups=["trash"]]
+input_pickable = true
+can_sleep = false
+script = ExtResource("1_choo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -13)
+scale = Vector2(0.912, 1)
+texture = ExtResource("2_mnmka")
+region_enabled = true
+region_rect = Rect2(334.075, 814.364, 95.757, 107.071)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(3, -15)
+polygon = PackedVector2Array(-27, -13, -19, 50, 11, 50, 20, -13, 16, -20, 7, -23, -11, -23, -21, -20)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

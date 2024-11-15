@@ -2,15 +2,19 @@ extends Node2D
 
 const garbage_objects = [
 	preload("res://garbage_objects/can.tscn"),
-	preload("res://garbage_objects/solo_cup.tscn")
+	preload("res://garbage_objects/solo_cup.tscn"),
+	preload("res://garbage_objects/bottle.tscn"),
+	preload("res://garbage_objects/paper_cup.tscn")
 ];
 
 const garbage_object_names = [
 	"can",
-	"solo_cup"
+	"solo_cup",
+	"glass_bottle",
+	"paper_cup"
 ]
 
-var trash_count = 100000;
+var trash_count = 40;
 func decrement_trash_count() -> bool:
 	trash_count -= 1;
 	return trash_count == 0;
@@ -24,6 +28,6 @@ func _ready():
 		add_child(scene);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	

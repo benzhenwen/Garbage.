@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://difji667lqp3e"]
+
+[ext_resource type="Script" path="res://scripts/grabable.gd" id="1_svjav"]
+[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.png" id="2_68o4y"]
+
+[node name="bottle" type="RigidBody2D" groups=["trash"]]
+input_pickable = true
+can_sleep = false
+script = ExtResource("1_svjav")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -13)
+scale = Vector2(0.912, 1)
+texture = ExtResource("2_68o4y")
+region_enabled = true
+region_rect = Rect2(265.413, 793.875, 45.2137, 124.425)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, -12)
+polygon = PackedVector2Array(-13, 51, -8, 55, 7, 55, 14, 51, 14, -10, 7, -19, 6, -49, 1, -52, -4, -49, -5, -19, -13, -10)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
