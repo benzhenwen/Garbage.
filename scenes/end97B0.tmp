@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://buqlddwomm3v"]
+
+[ext_resource type="SystemFont" uid="uid://r6tif6e33pks" path="res://system_font.tres" id="1_175tn"]
+[ext_resource type="Script" path="res://scripts/end_card_manager.gd" id="1_pqf5e"]
+[ext_resource type="Script" path="res://scenes/urls.gd" id="3_g5n8u"]
+
+[node name="End Card" type="Node2D"]
+script = ExtResource("1_pqf5e")
+
+[node name="Top Text" type="RichTextLabel" parent="."]
+offset_left = 262.0
+offset_top = 91.0
+offset_right = 1583.0
+offset_bottom = 243.0
+theme_override_fonts/normal_font = ExtResource("1_175tn")
+theme_override_font_sizes/normal_font_size = 50
+text = "How much did you think about the decisions you made?"
+scroll_active = false
+autowrap_mode = 0
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="label_body_text" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = 262.0
+offset_top = 288.0
+offset_right = 1764.0
+offset_bottom = 895.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_175tn")
+theme_override_font_sizes/normal_font_size = 32
+text = "text label not set"
+scroll_active = false
+autowrap_mode = 0
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="bottom_urls" type="RichTextLabel" parent="."]
+offset_left = 292.0
+offset_top = 968.0
+offset_right = 1645.0
+offset_bottom = 1079.0
+theme_override_fonts/normal_font = ExtResource("1_175tn")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Links to more info:
+[url=https://keepmassbeautiful.org/news-events/the-kmb-blog/overview.html/article/2021/01/30/aluminum-cans-are-champions-of-the-environment-are-you-recycling-them-properly-][color=sky_blue]Aluminum Cans[/color][/url], [url=https://racetozerowaste.org/ditch6-say-goodbye-to-6-plastics/][color=sky_blue]Solo Cups[/color][/url]"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+script = ExtResource("3_g5n8u")
+
+[connection signal="meta_clicked" from="bottom_urls" to="bottom_urls" method="_on_meta_clicked"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://ox63k4pnmafs"]
+
+[ext_resource type="PackedScene" uid="uid://cikbib3j3mbx7" path="res://garbage_objects/can.tscn" id="1_j2ukx"]
+[ext_resource type="PackedScene" uid="uid://bda4fsx1ppasx" path="res://garbage_objects/solo_cup.tscn" id="2_8j6xx"]
+[ext_resource type="PackedScene" uid="uid://difji667lqp3e" path="res://garbage_objects/bottle.tscn" id="3_61ljq"]
+[ext_resource type="PackedScene" uid="uid://ddy4kpob1fedt" path="res://garbage_objects/paper_cup.tscn" id="4_wx8hb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5rhf"]
+size = Vector2(84, 20)
+
+[node name="Ending Physics Scene" type="Node2D"]
+
+[node name="Can" parent="." instance=ExtResource("1_j2ukx")]
+position = Vector2(233, 278)
+
+[node name="Solo Cups" parent="." instance=ExtResource("2_8j6xx")]
+position = Vector2(233, 425)
+
+[node name="bottle" parent="." instance=ExtResource("3_61ljq")]
+position = Vector2(235, 595)
+
+[node name="paper_cup" parent="." instance=ExtResource("4_wx8hb")]
+position = Vector2(235, 749)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(233, 797)
+shape = SubResource("RectangleShape2D_w5rhf")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D4"]
+offset_left = -42.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 10.0
+mouse_filter = 1
+color = Color(0.18359, 0.18359, 0.18359, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(233, 655)
+shape = SubResource("RectangleShape2D_w5rhf")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D3"]
+offset_left = -42.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 10.0
+mouse_filter = 1
+color = Color(0.18359, 0.18359, 0.18359, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(233, 329)
+shape = SubResource("RectangleShape2D_w5rhf")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -42.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 10.0
+mouse_filter = 1
+color = Color(0.18359, 0.18359, 0.18359, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(233, 474)
+shape = SubResource("RectangleShape2D_w5rhf")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D2"]
+offset_left = -42.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 10.0
+mouse_filter = 1
+color = Color(0.18359, 0.18359, 0.18359, 1)
+metadata/_edit_use_anchors_ = true

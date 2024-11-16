@@ -1,0 +1,176 @@
+[gd_scene load_steps=12 format=3 uid="uid://df6mc4p7gt2yp"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_1lta3"]
+[ext_resource type="Texture2D" uid="uid://ua1cpbir62w2" path="res://garbage_assets/IMG_0270.PNG" id="2_1agx3"]
+[ext_resource type="Texture2D" uid="uid://b1adfbfg2hcho" path="res://garbage_assets/IMG_0271.PNG" id="4_sduy4"]
+[ext_resource type="SystemFont" uid="uid://r6tif6e33pks" path="res://system_font.tres" id="6_u8x5m"]
+[ext_resource type="Script" path="res://scripts/end_label.gd" id="7_3456h"]
+[ext_resource type="PackedScene" uid="uid://dyub1acwr27q7" path="res://garbage_objects/recycling_bin.tscn" id="8_klyyf"]
+[ext_resource type="PackedScene" uid="uid://bm8llavxslebb" path="res://garbage_objects/garbage_bin.tscn" id="9_l0aui"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7pym"]
+
+[sub_resource type="Animation" id="Animation_av7i7"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_fwjgt"]
+resource_name = "end_card_transition"
+length = 4.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.309804, 0.309804, 0.309804, 1), Color(0.118581, 0.118581, 0.118581, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("floor_image:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("recycling bin:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("trash bin:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("light:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("end label_container:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvfck"]
+_data = {
+"RESET": SubResource("Animation_av7i7"),
+"end_card_transition": SubResource("Animation_fwjgt")
+}
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_1lta3")
+
+[node name="s_floor" type="StaticBody2D" parent="."]
+position = Vector2(598, 920)
+
+[node name="floor" type="CollisionShape2D" parent="s_floor"]
+shape = SubResource("WorldBoundaryShape2D_n7pym")
+
+[node name="s_wall_l" type="StaticBody2D" parent="."]
+position = Vector2(0, 587)
+rotation = 1.5708
+
+[node name="floor" type="CollisionShape2D" parent="s_wall_l"]
+shape = SubResource("WorldBoundaryShape2D_n7pym")
+
+[node name="s_wall_r" type="StaticBody2D" parent="."]
+position = Vector2(1920, 612)
+
+[node name="floor" type="CollisionShape2D" parent="s_wall_r"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_n7pym")
+
+[node name="s_ceil" type="StaticBody2D" parent="."]
+
+[node name="floor" type="CollisionShape2D" parent="s_ceil"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_n7pym")
+
+[node name="floor_image" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(960, 540)
+texture = ExtResource("2_1agx3")
+
+[node name="recycling bin" parent="." instance=ExtResource("8_klyyf")]
+unique_name_in_owner = true
+position = Vector2(814, 817)
+
+[node name="trash bin" parent="." instance=ExtResource("9_l0aui")]
+unique_name_in_owner = true
+position = Vector2(1056, 819)
+
+[node name="light" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(960, 540)
+texture = ExtResource("4_sduy4")
+
+[node name="background" type="ColorRect" parent="."]
+z_index = -4
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+color = Color(0.309804, 0.309804, 0.309804, 1)
+
+[node name="end label_container" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="end label" type="RichTextLabel" parent="end label_container"]
+unique_name_in_owner = true
+offset_left = 300.0
+offset_top = 94.0
+offset_right = 1840.0
+offset_bottom = 1075.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("6_u8x5m")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "empty (if you see this it's bad)"
+script = ExtResource("7_3456h")
+
+[node name="End Animation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_wvfck")
+}
+
+[connection signal="meta_clicked" from="end label_container/end label" to="end label_container/end label" method="_on_meta_clicked"]
+[connection signal="animation_finished" from="End Animation" to="." method="_on_end_animation_animation_finished"]
