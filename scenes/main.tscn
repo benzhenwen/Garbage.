@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://df6mc4p7gt2yp"]
+[gd_scene load_steps=14 format=3 uid="uid://df6mc4p7gt2yp"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1lta3"]
 [ext_resource type="Texture2D" uid="uid://ua1cpbir62w2" path="res://garbage_assets/IMG_0270.PNG" id="2_1agx3"]
 [ext_resource type="Texture2D" uid="uid://b1adfbfg2hcho" path="res://garbage_assets/IMG_0271.PNG" id="4_sduy4"]
 [ext_resource type="SystemFont" uid="uid://r6tif6e33pks" path="res://system_font.tres" id="6_u8x5m"]
 [ext_resource type="Script" path="res://scripts/end_label.gd" id="7_3456h"]
+[ext_resource type="Script" path="res://scenes/exit_button.gd" id="8_ki8to"]
 [ext_resource type="PackedScene" uid="uid://dyub1acwr27q7" path="res://garbage_objects/recycling_bin.tscn" id="8_klyyf"]
+[ext_resource type="Texture2D" uid="uid://xbv4v7hkr2dc" path="res://garbage_assets/exit_icon.png" id="9_f4mxf"]
 [ext_resource type="PackedScene" uid="uid://bm8llavxslebb" path="res://garbage_objects/garbage_bin.tscn" id="9_l0aui"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n7pym"]
@@ -172,5 +174,21 @@ libraries = {
 "": SubResource("AnimationLibrary_wvfck")
 }
 
+[node name="TextureButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1861.0
+offset_top = 11.0
+offset_right = 1908.0
+offset_bottom = 58.0
+script = ExtResource("8_ki8to")
+
+[node name="ExitIcon" type="Sprite2D" parent="TextureButton"]
+position = Vector2(23.625, 23.625)
+scale = Vector2(0.146094, 0.146094)
+texture = ExtResource("9_f4mxf")
+
 [connection signal="meta_clicked" from="end label_container/end label" to="end label_container/end label" method="_on_meta_clicked"]
 [connection signal="animation_finished" from="End Animation" to="." method="_on_end_animation_animation_finished"]
+[connection signal="mouse_entered" from="TextureButton" to="TextureButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="TextureButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

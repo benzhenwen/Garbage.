@@ -42,7 +42,7 @@ func _ready():
 		
 		add_child(scene);
 
-# ONLY ONE OF EACH ITEM VARIANT
+## ONLY ONE OF EACH ITEM VARIANT
 #func _ready(): 
 	#trash_count = 4;
 	#for i in range(trash_count):
@@ -58,8 +58,8 @@ func _ready():
 		#
 		#add_child(scene);
 
-func _process(_delta):
-	pass;
+#func _process(_delta):
+	#pass;
 
 ## FLOOD VARIANT
 #var time: int;
