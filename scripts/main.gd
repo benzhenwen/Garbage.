@@ -33,9 +33,9 @@ func _ready():
 		var index = randi_range(0, len(garbage_objects)-1);
 		var scene = garbage_objects[index].instantiate();
 		
-		var tx = randf_range(30, 600);
+		var tx = randf_range(50, get_viewport_rect().size.x/3);
 		if (randi_range(0, 1)):
-			tx = 1920 - tx;
+			tx = get_viewport_rect().size.x - tx;
 		
 		scene.global_transform = Transform2D(randf_range(0, PI*2), Vector2(tx, randf_range(300, 600)));
 		scene.trash_name = garbage_object_names[index];
@@ -60,18 +60,3 @@ func _ready():
 
 #func _process(_delta):
 	#pass;
-
-## FLOOD VARIANT
-#var time: int;
-#func _ready():
-	#trash_count = 0;
-	#var time = Time.get_ticks_msec();
-#
-#func _process(_delta):
-	#if (Time.get_ticks_msec() >= time):
-		#time += 100;
-		#var index = randi_range(0, len(garbage_objects)-1);
-		#var scene = garbage_objects[index].instantiate();
-		#scene.global_transform.origin = Vector2(randf_range(30, 1890), randf_range(100, 400));
-		#scene.trash_name = garbage_object_names[index];
-		#add_child(scene);

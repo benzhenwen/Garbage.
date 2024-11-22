@@ -8,7 +8,6 @@ func _process(_delta):
 
 func _on_garbage_sleep_area_body_entered(body: Node2D):
 	if (body.is_in_group("trash")):
-		body.process_mode = 4;
-		body.hide();
+		body.queue_free();
 	
 	%"end label".increment_item(name, body.trash_name);

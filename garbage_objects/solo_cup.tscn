@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bda4fsx1ppasx"]
 
 [ext_resource type="Script" path="res://scripts/grabable.gd" id="1_clj34"]
-[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.png" id="2_oihqw"]
+[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.PNG" id="2_oihqw"]
 
 [node name="Solo Cups" type="RigidBody2D" groups=["trash"]]
 input_pickable = true

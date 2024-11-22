@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cikbib3j3mbx7"]
 
 [ext_resource type="Script" path="res://scripts/grabable.gd" id="1_fus35"]
-[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.png" id="2_aytef"]
+[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.PNG" id="2_aytef"]
 
 [node name="Can" type="RigidBody2D" groups=["trash"]]
 input_pickable = true

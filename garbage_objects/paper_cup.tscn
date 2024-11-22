@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddy4kpob1fedt"]
 
 [ext_resource type="Script" path="res://scripts/grabable.gd" id="1_choo1"]
-[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.png" id="2_mnmka"]
+[ext_resource type="Texture2D" uid="uid://b7hbqfjb4qjeb" path="res://garbage_assets/IMG_0273.PNG" id="2_mnmka"]
 
 [node name="paper_cup" type="RigidBody2D" groups=["trash"]]
 input_pickable = true
@@ -16,6 +16,7 @@ region_enabled = true
 region_rect = Rect2(334.075, 814.364, 95.757, 107.071)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(3, -15)
 polygon = PackedVector2Array(-27, -13, -19, 50, 11, 50, 20, -13, 16, -20, 7, -23, -11, -23, -21, -20)
 

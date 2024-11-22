@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 func _ready():
-	pass;
+	scale = get_viewport_rect().size / Vector2(1920, 1080);
 
 func _process(_delta):
 	pass;
