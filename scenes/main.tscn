@@ -172,6 +172,7 @@ libraries = {
 }
 
 [node name="exit_button" parent="." instance=ExtResource("7_2xewq")]
+visible = false
 
 [connection signal="meta_clicked" from="end label_container/end label" to="end label_container/end label" method="_on_meta_clicked"]
 [connection signal="animation_finished" from="End Animation" to="." method="_on_end_animation_animation_finished"]
