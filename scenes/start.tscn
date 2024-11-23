@@ -23,7 +23,6 @@ hint_underlined = false
 script = ExtResource("2_7ajxv")
 
 [node name="exit_button" parent="." instance=ExtResource("3_xrg8e")]
-visible = false
 
 [node name="garbage_sleep_area" type="Area2D" parent="."]
 position = Vector2(1188, 934)
