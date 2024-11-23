@@ -33,9 +33,9 @@ func _ready():
 		var index = randi_range(0, len(garbage_objects)-1);
 		var scene = garbage_objects[index].instantiate();
 		
-		var tx = randf_range(50, get_viewport_rect().size.x/3);
+		var tx = randf_range(50, get_window().content_scale_size.x/3);
 		if (randi_range(0, 1)):
-			tx = get_viewport_rect().size.x - tx;
+			tx = get_window().content_scale_size.x - tx;
 		
 		scene.global_transform = Transform2D(randf_range(0, PI*2), Vector2(tx, randf_range(300, 600)));
 		scene.trash_name = garbage_object_names[index];

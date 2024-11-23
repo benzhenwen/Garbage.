@@ -17,3 +17,4 @@ mono_crash.*.json
 # build folders
 build_windows/
 build_linux/
+build_web/

@@ -16,7 +16,7 @@ func _process(_delta):
 		time += 100;
 		var index = randi_range(0, len(garbage_objects)-1);
 		var scene = garbage_objects[index].instantiate();
-		scene.global_transform = Transform2D(randf_range(0, PI*2), Vector2(randf_range(30, get_viewport_rect().size.x - 30), randf_range(-200, -100)));
+		scene.global_transform = Transform2D(randf_range(0, PI*2), Vector2(randf_range(30, get_window().content_scale_size.x - 30), randf_range(-200, -100)));
 		add_child(scene);
 
 
