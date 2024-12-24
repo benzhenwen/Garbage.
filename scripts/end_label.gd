@@ -57,7 +57,7 @@ func trigger_end_scene():
 		+ "\n" \
 		+ "You decided to " + ("recycle" if had_recycled["glass_bottle"] else "trash") + " glass bottles.\n" \
 		+ "Glass should be recycled, and sometimes has a dedicated dropoff location.\n" \
-		+ "In some cases, improperly sorting glass can cause slag to form in plants.\n" \
+		+ "Some facilities have special restrictions, and some glass types cannot be recycled.\n" \
 		+ "Check with your local recycling plant :)\n" \
 		+ "\n" \
 		+ "You decided to " + ("recycle" if had_recycled["coffee_cup"] else "trash") + " coffee cups.\n" \
