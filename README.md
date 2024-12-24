@@ -4,8 +4,6 @@ Garbage is a simple game made for my Enlgish multi-modal design project.
 ## Running Online
 This project can be found at https://benzhenwen.itch.io/garbage
 
-The web build contains some issues with viewport sizing that are not planned to be fixed.
-
 ## Running Locally
 Click on releases on the right side of the github page and download the appropriate build depending on your platform.
 
