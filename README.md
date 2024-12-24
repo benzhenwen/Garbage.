@@ -15,4 +15,4 @@ This project is built using Godot 4.3.
 Clone this repo and open the project file through Gogot's import feature. You are welcome to run the main.tscn scene from the editor or build it yourself.
 
 ## Known issues
-Text misaligned with side icons in some cases
+Text misaligned with side icons in some cases, such as when running the game through web on windows.
